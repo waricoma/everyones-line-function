@@ -1,0 +1,38 @@
+{
+  "name": "everyones-line-function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
+  "scripts": {
+    "start": "npm run compact-babel && node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker": "docker-compose -p everyones-line-function up -d --build",
+    "babel": "watchify ./views/dev.js -o ./public/dev.js & babel ./public/dev.js -w -o ./public/dev.js",
+    "compact-babel": "browserify ./views/dev.js -o ./public/dev.js && babel ./public/dev.js --compact=true -o ./public/dev.js"
+  },
+  "keywords": [
+    "line",
+    "bot"
+  ],
+  "author": "Motone Adachi",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^6.3.0",
+    "consola": "^1.4.4",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "helmet": "^3.15.0",
+    "moment": "^2.22.2",
+    "request": "^2.88.0",
+    "sequelize": "^4.41.2",
+    "sqlite3": "^4.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browserify": "^16.2.3",
+    "watchify": "^3.11.0"
+  }
+}

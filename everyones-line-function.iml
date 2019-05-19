@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sdk" level="application" />
+    <orderEntry type="library" name="ace" level="application" />
+    <orderEntry type="library" name="ext-language_tools" level="application" />
+    <orderEntry type="library" name="materialize" level="application" />
+    <orderEntry type="library" name="jquery.ui.touch-punch" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1" level="application" />
+    <orderEntry type="library" name="beautify" level="application" />
+    <orderEntry type="library" name="beautify-css" level="application" />
+    <orderEntry type="library" name="beautify-html" level="application" />
+  </component>
+</module>

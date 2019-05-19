@@ -1,0 +1,189 @@
+<head>
+    <title>みんなでWebアプリ🔧</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <link rel="stylesheet" href="./jquery-linedtextarea.css">
+    <script src="./jquery-linedtextarea.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ext-language_tools.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.8.10-beta1/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.8.10-beta1/beautify-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.8.10-beta1/beautify-html.min.js"></script>
+    <style>
+        .vh100 {
+            height: 100vh;
+        }
+        .vh90 {
+            height: 90vh;
+        }
+        .w0h0 {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="tools">
+    <div class="row z-depth-3">
+        <div title="file" class="col waves-effect waves-orange hoverable">
+            <label for="fileSelector">File</label>
+            <select id="fileSelector" class="browser-default flow-text">
+                <option selected value="ALL">ALL</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JS">JS</option>
+            </select>
+        </div>
+        <div title="mode" class="col waves-effect waves-orange hoverable">
+            <label for="modeSelector">Mode</label>
+            <select id="modeSelector" class="browser-default flow-text">
+                <option selected value="simple">⬜</option>
+                <option value="line">🔢</option>
+                <option value="ace">🎨</option>
+                <option value="all">🚀</option>
+            </select>
+        </div>
+        <div title="find replace" id="findReplace" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">search</i>
+        </div>
+        <div title="save" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">save</i>
+        </div>
+        <div title="preview" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">remove_red_eye</i>
+        </div>
+        <div title="deploy" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">file_upload</i>
+        </div>
+        <div id="undo" title="undo" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">undo</i>
+        </div>
+        <div title="redo" id="redo" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">redo</i>
+        </div>
+        <div title="auto indent" id="auto" class="col waves-effect waves-orange hoverable">
+            <i class="material-icons medium">flash_auto</i>
+        </div>
+        <div title="insert symbol" class="col waves-effect waves-orange hoverable">
+            <label for="symbolSelector">Insert</label>
+            <select id="symbolSelector" class="browser-default flow-text">
+                <option selected><pre></pre></option>
+                <option><pre>""</pre></option>
+                <option><pre>''</pre></option>
+                <option><pre><></pre></option>
+                <option><pre>()</pre></option>
+                <option><pre>;</pre></option>
+                <option><pre>&</pre></option>
+                <option><pre>||</pre></option>
+                <option><pre>+</pre></option>
+                <option><pre>-</pre></option>
+                <option><pre>*</pre></option>
+                <option><pre>/</pre></option>
+                <option><pre>%</pre></option>
+                <option><pre>=</pre></option>
+                <option><pre>===</pre></option>
+                <option><pre><</pre></option>
+                <option><pre>></pre></option>
+                <option><pre><=</pre></option>
+                <option><pre>>=</pre></option>
+                <option><pre>!==</pre></option>
+                <option><pre>++</pre></option>
+                <option><pre>+=</pre></option>
+                <option><pre>--</pre></option>
+                <option><pre>-=</pre></option>
+                <option><pre>*=</pre></option>
+                <option><pre>/=</pre></option>
+            </select>
+        </div>
+    </div>
+    <div class="row z-depth-3">
+        <div class="col s4 input-field waves-effect waves-orange hoverable">
+            <label for="findText">Find text</label>
+            <input id="findText" type="text" class="validate">
+        </div>
+        <div class="col s1 waves-effect waves-orange hoverable">
+            <i class="material-icons medium">keyboard_return</i>
+        </div>
+        <div class="col s4 input-field waves-effect waves-orange hoverable">
+            <label for="replaxeText">Replace text</label>
+            <input id="replaxeText" type="text" class="validate">
+        </div>
+        <div class="col s1 waves-effect waves-orange hoverable">
+            <i class="material-icons medium">keyboard_return</i>
+        </div>
+        <div class="col s2 waves-effect waves-orange hoverable">
+            <label for="allAndRegex">All & Regex</label>
+            <select id="allAndRegex" class="browser-default flow-text">
+                <option>None</option>
+                <option>All</option>
+                <option>Regex</option>
+                <option>All & Regex</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-top: 14%">
+    <div class="row">
+        <div class="col s12 input-field">
+            <label for="simpleHTML">HTML</label>
+            <textarea id="simpleHTML" class="materialize-textarea"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 w0h0">
+            <label for="withNumHTML">HTML 🔢</label>
+            <textarea id="withNumHTML" class="lined vh100"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 hide">
+            <label>HTML 🎨</label>
+            <div id="html" class="vh100"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 input-field">
+            <label for="simpleCSS">CSS</label>
+            <textarea id="simpleCSS" class="materialize-textarea"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 w0h0">
+            <label for="withNumCSS">CSS 🔢</label>
+            <textarea id="withNumCSS" class="lined vh90"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 hide">
+            <label>CSS 🎨</label>
+            <div id="css" class="vh100"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 input-field">
+            <label for="simpleJS">JavaScript</label>
+            <textarea id="simpleJS" class="materialize-textarea"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 w0h0">
+            <label for="withNumJS">JavaScript 🔢</label>
+            <textarea id="withNumJS" class="lined vh90"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 hide">
+            <label>JavaScript 🎨</label>
+            <div id="js" class="vh100"></div>
+        </div>
+    </div>
+</div>
+<script src="./dev.js"></script>
+</body>

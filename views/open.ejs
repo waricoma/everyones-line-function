@@ -1,0 +1,27 @@
+<head>
+    <title>wawawa</title>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>Hello</h1>
+<a href="./1">aaaaaaaaaaaaaaa</a>
+<script>
+  liff.init(function (data) {
+    $('h1').click(() => {
+      liff.sendMessages([{
+        type: 'text',
+        text: "テキストメッセージの送信"
+      }, {
+        type: 'sticker',
+        packageId: '2',
+        stickerId: '144'
+      }]).then(function () {
+        window.alert("送信完了");
+      }).catch(function (error) {
+        window.alert("Error sending message: " + error);
+      });
+    });
+  });
+</script>
+</body>

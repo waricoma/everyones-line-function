@@ -1,0 +1,52 @@
+{
+  "name": "everyones-line-function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "npm run prod && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run copy-static-assets && webpack --config ./webpack.config.dev.js --progress --colors && node ./dist/index.js",
+    "watch": "npm run copy-static-assets && webpack --config ./webpack.config.dev.js --progress --colors --watch",
+    "prod": "npm run copy-static-assets && webpack --config ./webpack.config.prod.js --progress --colors",
+    "copy-static-assets": "cp -r ./src/views/ ./dist/views",
+    "docker": "docker-compose -p everyones-line-function up -d --build",
+    "4docker": "npm i webpack -g && npm start"
+  },
+  "keywords": [
+    "line",
+    "bot"
+  ],
+  "author": "Motone Adachi",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^6.3.0",
+    "consola": "^1.4.4",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "request": "^2.88.0",
+    "sequelize": "^4.41.2",
+    "sqlite3": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/consola": "^1.0.0",
+    "@types/dotenv": "^4.0.3",
+    "@types/express": "^4.16.0",
+    "@types/helmet": "0.0.42",
+    "@types/node": "^10.12.11",
+    "@types/request": "^2.48.0",
+    "@types/sequelize": "^4.27.32",
+    "@types/shelljs": "^0.8.0",
+    "shelljs": "^0.8.3",
+    "ts-loader": "^5.3.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.1.5",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
