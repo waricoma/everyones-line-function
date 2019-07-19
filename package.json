@@ -18,15 +18,15 @@
   "license": "ISC",
   "dependencies": {
     "@line/bot-sdk": "^6.3.0",
-    "consola": "^1.4.4",
-    "dotenv": "^6.1.0",
+    "consola": "^2.9.0",
+    "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.1.0",
     "helmet": "^3.15.0",
     "moment": "^2.22.2",
     "request": "^2.88.0",
-    "sequelize": "^4.41.2",
+    "sequelize": "^5.10.1",
     "sqlite3": "^4.0.4"
   },
   "devDependencies": {
