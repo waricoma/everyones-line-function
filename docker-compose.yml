@@ -12,7 +12,7 @@ services:
     - node_express
 
   node_express:
-    image: node:9.11.1-alpine
+    image: node:9.11.2-alpine
     container_name: node_express
     hostname: node_express
     command: "npm docker"
