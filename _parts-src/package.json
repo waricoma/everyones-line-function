@@ -20,7 +20,7 @@
   "author": "Motone Adachi",
   "license": "ISC",
   "dependencies": {
-    "@line/bot-sdk": "^6.3.0",
+    "@line/bot-sdk": "^7.0.0",
     "consola": "^1.4.4",
     "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
