@@ -28,7 +28,7 @@
     "helmet": "^4.0.0",
     "request": "^2.88.0",
     "sequelize": "^6.0.0",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.3"
   },
   "devDependencies": {
     "@types/consola": "1.0.0",
