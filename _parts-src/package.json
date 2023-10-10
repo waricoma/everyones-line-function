@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/consola": "1.0.0",
     "@types/dotenv": "6.1.1",
-    "@types/express": "4.17.9",
+    "@types/express": "4.17.19",
     "@types/helmet": "0.0.48",
     "@types/node": "10.17.35",
     "@types/request": "2.48.5",
